@@ -23,32 +23,57 @@
     text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
 
- /* Slideshow */
-#photo-slideshow {
+  /* Intro screen */
+  #intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s;
+    padding: 20px;
+  }
+  #intro h2 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+  }
+  #intro p {
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin: 5px 0;
+    line-height: 1.5;
+  }
+
+  /* Slideshow */
+  #photo-slideshow {
     position: relative;
-    width: 300px;       /* slightly bigger */
-    height: auto;       /* auto height to keep aspect ratio */
-    margin: 0 auto 20px auto;
+    width: 300px;
+    height: auto;
+    margin: 20px auto;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-#photo-slideshow img {
-    width: 100%;        /* full width */
-    height: auto;       /* maintain original aspect ratio */
+    display: none;
+  }
+  #photo-slideshow img {
+    width: 100%;
+    height: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 1s;
-}
-
-#photo-slideshow img.active {
+  }
+  #photo-slideshow img.active {
     opacity: 1;
-}
-
+  }
 
   /* Wishes */
   #wishes-container {
@@ -57,6 +82,7 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    display: none;
   }
   .wish {
     background: rgba(255,255,255,0.2);
@@ -102,7 +128,12 @@
 </head>
 <body>
 
-<h1>Happy Birthday Masooma! 🎉</h1>
+<!-- Intro Screen -->
+<div id="intro">
+  <h2>Happy 28th Birthday Masooma! 🎉</h2>
+  <p>Hi Masooma, it's Aown, your husband. Today is so special because my life partner, my everything, is born. ❤️</p>
+  <p>Today starts a beautiful story of love, joy, and happiness. Here are wishes from people who love you!</p>
+</div>
 
 <!-- Slideshow -->
 <div id="photo-slideshow">
@@ -121,19 +152,28 @@
 
 <script src="wishes.js"></script>
 <script>
-  // Display wishes with animation
-  const container = document.getElementById('wishes-container');
-  wishes.forEach((wish, index) => {
-    const div = document.createElement('div');
-    div.classList.add('wish');
-    div.innerHTML = `<h3>${wish.name}</h3><p>${wish.message}</p>`;
-    container.appendChild(div);
-
-    // Show one by one with delay
+  // Intro screen fade out after 5 seconds
+  setTimeout(() => {
+    document.getElementById('intro').style.opacity = '0';
     setTimeout(() => {
-      div.classList.add('show');
-    }, index * 500); // 0.5s delay between each wish
-  });
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('photo-slideshow').style.display = 'block';
+      document.getElementById('wishes-container').style.display = 'flex';
+
+      // Animate wishes after intro
+      const container = document.getElementById('wishes-container');
+      wishes.forEach((wish, index) => {
+        const div = document.createElement('div');
+        div.classList.add('wish');
+        div.innerHTML = `<h3>${wish.name}</h3><p>${wish.message}</p>`;
+        container.appendChild(div);
+        setTimeout(() => {
+          div.classList.add('show');
+        }, index * 500); // 0.5s delay between each wish
+      });
+
+    }, 1000); // wait for fade-out
+  }, 5000); // intro duration
 
   // Confetti
   for(let i=0; i<100; i++){
