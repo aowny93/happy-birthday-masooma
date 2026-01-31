@@ -22,5 +22,33 @@ const wishes = [
   {
     name: "Esha",
     message: "Happy birthday bhabii ♥️\nYour vibe is sooo lit MashAllah. May Allah always keep you happy ♥️.\nIn Sha Allah jo aap chahte ho apnii life me wo aap achieve b kr looo 🥹.\nAllah apkooo boht ziada khushia deii 🥹.\nApkooo humesha khush rkheiii.\nYuhii Khush rheii aap ♥️\n- Apkii Esha 🤍"
+  },
+  {
+    name: "Zain",
+    message: "HAPYY BIRTHDAY ESHA 🧁🧁🍾🍾 KEEP UR NOSE CLEAN 😆"
+  },
+  {
+    name: "Hina",
+    message: "Hi beautiful cousin ❣️ Happiest birthday 🎂 May this year brings a lot of happiness for you✨ Your all wishes come true this year stay healthy 😉 wealthy 🥰❣️ energetic 💝"
+  },
+  {
+    name: " Rubab Malik",
+    message: "Happy Birthday Esha Api, Stay blessed and pretty always. May your every wish come true this year, may you fly asap and send me gifts from there 😂♥️ (Ameen)"
+  },
+  {
+    name: "Asad Ali",
+    message: "Janam din mubarak meri pyari beti. Papa jaani loves you a lot 💕"
+  },
+  {
+    name: "Manoooo",
+    message: "Happy Birthday dear Masooma api 😘 May Allah bless you with a life full of peace, good health, and endless happiness. May every step you take be guided by His light, and may your heart always be filled with faith and gratitude. May your dreams come true, your smile never fade, and may you always be surrounded by love and kindness. Wishing you a beautiful year ahead and a future brighter than ever. 🤍✨"
+  },
+  {
+    name: "Nuchi Phopho",
+    message: "Happy birthday Esha beti ❤️ Khush raho ❤️"
+  },
+  {
+    name: "Khala Saadia",
+    message: "Happiest birthday Masooma. May your life be filled with grace, happiness, and peaceful moments. Wishing you good health, quiet joy, and beautiful days ahead. Stay blessed always."
   }
 ];
