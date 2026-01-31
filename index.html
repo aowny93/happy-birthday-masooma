@@ -88,11 +88,12 @@
     padding: 20px;
     display: none;
   }
-  .wish {
+ .wish {
     background: rgba(255,255,255,0.2);
     border-radius: 15px;
     padding: 20px;
-    width: 250px;
+    width: 250px; /* default for desktop */
+    max-width: 90%; /* allow it to shrink on mobile */
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     backdrop-filter: blur(5px);
     transform: scale(0);
@@ -100,7 +101,9 @@
     transition: transform 0.5s ease, opacity 0.5s ease;
     position: relative;
     overflow: hidden;
-  }
+    word-wrap: break-word; /* ensures long text wraps correctly */
+}
+
   .wish.show {
     transform: scale(1);
     opacity: 1;
