@@ -1,10 +1,11 @@
 const wishes = [
-  {
-    name: "Aown ❤️",
-    message: "My dearest Masooma, even though miles separate us, my heart is always with you. You are my world, my dream, my everything. Happy Birthday, my love — I promise our love will grow stronger every day, and soon we’ll be together, making every moment as beautiful as you make my life. ❤️"
-  },
-  { name: "Ali", message: "Wishing you a day filled with laughter and joy!" },
-  { name: "Sara", message: "May all your dreams come true this year!" },
-  { name: "John", message: "Hope your birthday is as amazing as you are!" },
-  // Add all your other gathered wishes here
+    {
+        name: "Aown",
+        message: "Hi Masooma, it's Aown, your husband. Today is so special because my life partner, my everything, is born. ❤️"
+    },
+    {
+        name: "Hadi",
+        message: "Happy birthday Masooma bahbi! Mola apko lambo zindgayi isi tarah hasti muskarti mere bahi k sath rehy akhari sans tak insha'Allah. Apko har wish puri ho gayi Mola Ghazi AS k sadqay. Jo jo apky dil mei hay sab pora ho ga. Once again happy birthday! Treat de 😂😂"
+    },
+    // add more wishes here
 ];
