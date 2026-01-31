@@ -36,7 +36,6 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 1s;
     padding: 20px;
   }
   #intro h2 {
@@ -48,6 +47,7 @@
     max-width: 700px;
     margin: 5px 0;
     line-height: 1.5;
+    min-height: 4em; /* keep space for typing effect */
   }
 
   /* Slideshow */
@@ -131,8 +131,7 @@
 <!-- Intro Screen -->
 <div id="intro">
   <h2>Happy 28th Birthday Masooma! 🎉</h2>
-  <p>Hi Masooma, it's Aown, your husband. Today is so special because my life partner, my everything, is born. ❤️</p>
-  <p>Today starts a beautiful story of love, joy, and happiness. Here are wishes from people who love you!</p>
+  <p id="story"></p>
 </div>
 
 <!-- Slideshow -->
@@ -152,28 +151,43 @@
 
 <script src="wishes.js"></script>
 <script>
-  // Intro screen fade out after 5 seconds
-  setTimeout(() => {
-    document.getElementById('intro').style.opacity = '0';
-    setTimeout(() => {
-      document.getElementById('intro').style.display = 'none';
-      document.getElementById('photo-slideshow').style.display = 'block';
-      document.getElementById('wishes-container').style.display = 'flex';
+  // Typing effect for intro story
+  const storyText = "Hi Masooma, it's Aown, your husband. Today is so special because my life partner, my everything, is born. Today starts a beautiful story of love, joy, and happiness. Here are wishes from people who love you! ❤️";
+  const storyElement = document.getElementById("story");
+  let index = 0;
 
-      // Animate wishes after intro
-      const container = document.getElementById('wishes-container');
-      wishes.forEach((wish, index) => {
-        const div = document.createElement('div');
-        div.classList.add('wish');
-        div.innerHTML = `<h3>${wish.name}</h3><p>${wish.message}</p>`;
-        container.appendChild(div);
-        setTimeout(() => {
-          div.classList.add('show');
-        }, index * 500); // 0.5s delay between each wish
-      });
+  function typeStory() {
+    if(index < storyText.length) {
+      storyElement.innerHTML += storyText.charAt(index);
+      index++;
+      setTimeout(typeStory, 50); // adjust speed here
+    } else {
+      // After story completes, wait 1.5s then fade out intro
+      setTimeout(() => {
+        document.getElementById('intro').style.transition = 'opacity 1s';
+        document.getElementById('intro').style.opacity = '0';
+        setTimeout(showMainPage, 1000);
+      }, 1500);
+    }
+  }
 
-    }, 1000); // wait for fade-out
-  }, 5000); // intro duration
+  function showMainPage() {
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('photo-slideshow').style.display = 'block';
+    document.getElementById('wishes-container').style.display = 'flex';
+
+    // Animate wishes after intro
+    const container = document.getElementById('wishes-container');
+    wishes.forEach((wish, idx) => {
+      const div = document.createElement('div');
+      div.classList.add('wish');
+      div.innerHTML = `<h3>${wish.name}</h3><p>${wish.message}</p>`;
+      container.appendChild(div);
+      setTimeout(() => { div.classList.add('show'); }, idx * 500);
+    });
+  }
+
+  typeStory(); // start typing effect
 
   // Confetti
   for(let i=0; i<100; i++){
@@ -193,7 +207,7 @@
     slides[current].classList.remove('active');
     current = (current + 1) % slides.length;
     slides[current].classList.add('active');
-  }, 3000); // change every 3s
+  }, 3000);
 </script>
 
 </body>
