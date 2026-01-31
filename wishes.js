@@ -51,4 +51,8 @@ const wishes = [
     name: "Khala Saadia",
     message: "Happiest birthday Masooma. May your life be filled with grace, happiness, and peaceful moments. Wishing you good health, quiet joy, and beautiful days ahead. Stay blessed always."
   }
+    {
+    name: "Farah Api",
+    message: "Happiest Birthday Masooma. May peace,  love and happiness be forever too much for you to count.I hope your day is great and the year ahead even better.."
+  }
 ];
