@@ -130,6 +130,19 @@
   @keyframes fall {
     0% { transform: translateY(-10px) rotate(0deg); }
     100% { transform: translateY(100vh) rotate(360deg); }
+    @media (max-width: 600px) {
+      #wishes-container {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          padding: 10px;
+      }
+      .wish {
+          width: 90%;  /* fill most of the mobile screen */
+          font-size: 1rem; /* readable text */
+      }
+  }
+</style>
   }
 </style>
 </head>
