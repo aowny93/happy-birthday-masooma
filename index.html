@@ -1,58 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Masooma — A Love Written in Time</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Masooma!</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    margin: 20px 0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+
+  /* Slideshow */
+  #photo-slideshow {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 20px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  #photo-slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  #photo-slideshow img.active {
+    opacity: 1;
+  }
+
+  /* Wishes */
+  #wishes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  .wish {
+    background: rgba(255,255,255,0.2);
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .wish.show {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .wish h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+  }
+  .wish p {
+    font-size: 1rem;
+  }
+
+  /* Confetti */
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    top: 0;
+    animation: fall linear infinite;
+    opacity: 0.8;
+    z-index: 9999;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10px) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+</style>
 </head>
 <body>
 
-<div class="light-leak"></div>
+<h1>Happy Birthday Masooma! 🎉</h1>
 
-<audio id="music" loop>
+<!-- Slideshow -->
+<div id="photo-slideshow">
+  <img src="1.jpeg" class="active" alt="Photo 1">
+  <img src="2.jpeg" alt="Photo 2">
+  <img src="3.jpeg" alt="Photo 3">
+</div>
+
+<!-- Wishes -->
+<div id="wishes-container"></div>
+
+<!-- Music -->
+<audio autoplay loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="scene opening" onclick="beginFilm()">
-  <p class="fade-text">In a world full of strangers…</p>
-  <p class="fade-text delay">my heart learned one name.</p>
-  <h1 class="title delay-2">Masooma</h1>
-  <span class="hint">Click to begin</span>
-</div>
+<script src="wishes.js"></script>
+<script>
+  // Display wishes with animation
+  const container = document.getElementById('wishes-container');
+  wishes.forEach((wish, index) => {
+    const div = document.createElement('div');
+    div.classList.add('wish');
+    div.innerHTML = `<h3>${wish.name}</h3><p>${wish.message}</p>`;
+    container.appendChild(div);
 
-<section class="scene love-letter hidden">
-  <div id="cinematic-text"></div>
-</section>
+    // Show one by one with delay
+    setTimeout(() => {
+      div.classList.add('show');
+    }, index * 500); // 0.5s delay between each wish
+  });
 
-<section class="scene memories hidden">
-  <h2>Moments That Made Me Fall</h2>
-  <div class="gallery"></div>
-</section>
+  // Confetti
+  for(let i=0; i<100; i++){
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * window.innerWidth + 'px';
+    confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 75%)`;
+    confetti.style.animationDuration = 2 + Math.random()*3 + 's';
+    confetti.style.width = confetti.style.height = 5 + Math.random()*5 + 'px';
+    document.body.appendChild(confetti);
+  }
 
-<section class="scene poetry hidden">
-  <p>
-    Tum sirf meri biwi nahi ho Masooma,<br>
-    Tum meri dua, meri sabr aur meri taqat ho.<br><br>
-    Dooriyan humen azma sakti hain,<br>
-    Magar alag nahi kar sakti.<br><br>
-    Main tumse mohabbat karta hoon,<br>
-    har saans se zyada.
-  </p>
-</section>
+  // Slideshow
+  const slides = document.querySelectorAll('#photo-slideshow img');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 3000); // change every 3s
+</script>
 
-<section class="scene ending hidden">
-  <p>
-    Born in 1998.<br>
-    Loved beyond time.<br><br>
-    No distance. No fear.<br>
-    Just us.
-  </p>
-  <h3>Happy Birthday, My Forever ❤️</h3>
-  <span>— Aown</span>
-</section>
-
-<div class="heartbeat">❤️</div>
-
-<script src="script.js"></script>
 </body>
 </html>
