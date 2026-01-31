@@ -23,29 +23,32 @@
     text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
 
-  /* Slideshow */
-  #photo-slideshow {
+ /* Slideshow */
+#photo-slideshow {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 300px;       /* slightly bigger */
+    height: auto;       /* auto height to keep aspect ratio */
     margin: 0 auto 20px auto;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  }
-  #photo-slideshow img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+}
+
+#photo-slideshow img {
+    width: 100%;        /* full width */
+    height: auto;       /* maintain original aspect ratio */
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 1s;
-  }
-  #photo-slideshow img.active {
+}
+
+#photo-slideshow img.active {
     opacity: 1;
-  }
+}
+
 
   /* Wishes */
   #wishes-container {
