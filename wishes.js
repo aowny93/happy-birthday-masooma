@@ -32,7 +32,7 @@ const wishes = [
     message: "Hi beautiful cousin ❣️ Happiest birthday 🎂 May this year brings a lot of happiness for you✨ Your all wishes come true this year stay healthy 😉 wealthy 🥰❣️ energetic 💝"
   },
   {
-    name: " Rubab Malik",
+    name: "Rubab Malik",
     message: "Happy Birthday Esha Api, Stay blessed and pretty always. May your every wish come true this year, may you fly asap and send me gifts from there 😂♥️ (Ameen)"
   },
   {
