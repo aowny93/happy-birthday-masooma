@@ -4,14 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Masooma!</title>
+
+<!-- Prevent cache issues -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
   body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    color: #fff;
     text-align: center;
     min-height: 100vh;
     overflow-x: hidden;
@@ -21,12 +27,15 @@
     font-family: 'Great Vibes', cursive;
     font-size: 3rem;
     margin: 20px 0;
+    color: #fff;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
 
   #intro {
     padding: 20px;
+    color: #fff;
   }
+
   #intro p {
     font-size: 1.2rem;
     max-width: 700px;
@@ -34,20 +43,19 @@
     line-height: 1.5;
   }
 
-  /* Main photo */
   #main-photo {
     margin: 20px auto;
     max-width: 90%;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
+
   #main-photo img {
     width: 100%;
     height: auto;
     border-radius: 20px;
   }
 
-  /* Wishes container */
   #wishes-container {
     display: flex;
     flex-wrap: wrap;
@@ -56,117 +64,100 @@
     padding: 20px;
   }
 
-  /* Each wish card */
   .wish {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.35);
     border-radius: 15px;
     padding: 20px;
     width: 250px;
     max-width: 90%;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
     transform: scale(0);
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
-    word-wrap: break-word;
+    color: #b1005a; /* DARK PINK */
   }
+
   .wish.show {
     transform: scale(1);
     opacity: 1;
   }
+
   .wish h3 {
-    margin: 0 0 10px 0;
+    margin-bottom: 10px;
     font-size: 1.1rem;
-  }
-  .wish p {
-    font-size: 1rem;
-    line-height: 1.4;
+    color: #8a0045;
   }
 
-  /* Confetti */
+  .wish p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
   .confetti {
     position: fixed;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
+    width: 8px;
+    height: 8px;
     top: 0;
     animation: fall linear infinite;
     opacity: 0.8;
     z-index: 9999;
   }
+
   @keyframes fall {
     0% { transform: translateY(-10px) rotate(0deg); }
     100% { transform: translateY(100vh) rotate(360deg); }
   }
 
-  /* Mobile responsiveness */
   @media (max-width: 600px) {
-      #wishes-container {
-          flex-direction: column;
-          align-items: center;
-          gap: 15px;
-          padding: 10px;
-      }
-      .wish {
-          width: 90%;  /* fills most of the screen */
-          font-size: 1rem;
-      }
-      h1 {
-          font-size: 2.5rem;
-      }
-      #intro p {
-          font-size: 1rem;
-      }
+    #wishes-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2.4rem;
+    }
+    #intro p {
+      font-size: 1rem;
+    }
   }
 </style>
 </head>
+
 <body>
 
-<!-- Intro -->
 <div id="intro">
   <h1>Happy 28th Birthday Masooma! 🎉</h1>
-  <p>Hi Masooma, it's Aown, your husband. Today is so special because my life partner, my everything, is born. ❤️</p>
+  <p>Hi Masooma, it's Aown, your husband. Today is special because my life partner, my everything, is born ❤️</p>
   <p>Here are wishes from people who love you!</p>
 </div>
 
-<!-- Main Photo -->
 <div id="main-photo">
   <img src="https://raw.githubusercontent.com/aowny93/happy-birthday-masooma/main/1.jpeg" alt="Masooma">
 </div>
 
-<!-- Wishes Container -->
 <div id="wishes-container"></div>
 
-<!-- Background Music -->
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- JS for wishes and confetti -->
-<script src="wishes.js"></script>
-  <script src="wishes.js?v=1.1"></script>
+<!-- Load wishes ONCE with version -->
+<script src="wishes.js?v=2.0"></script>
 
 <script>
-  // Animate wishes one by one
   const container = document.getElementById('wishes-container');
+
   wishes.forEach((wish, index) => {
     const div = document.createElement('div');
-    div.classList.add('wish');
+    div.className = 'wish';
     div.innerHTML = `<h3>${wish.name}</h3><p>${wish.message}</p>`;
     container.appendChild(div);
-    setTimeout(() => {
-      div.classList.add('show');
-    }, index * 500); // 0.5s delay per wish
+    setTimeout(() => div.classList.add('show'), index * 500);
   });
 
-  // Confetti
-  for(let i=0; i<100; i++){
+  for (let i = 0; i < 100; i++) {
     const confetti = document.createElement('div');
-    confetti.classList.add('confetti');
+    confetti.className = 'confetti';
     confetti.style.left = Math.random() * window.innerWidth + 'px';
-    confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 75%)`;
+    confetti.style.backgroundColor = `hsl(${Math.random()*360},100%,75%)`;
     confetti.style.animationDuration = 2 + Math.random()*3 + 's';
-    confetti.style.width = confetti.style.height = 5 + Math.random()*5 + 'px';
     document.body.appendChild(confetti);
   }
 </script>
