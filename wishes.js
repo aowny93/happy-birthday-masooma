@@ -125,6 +125,11 @@ const wishes = [
   },
 
   {
+    name: "Honey",
+    message: "Happy birthday best Bhabhi of the world 🤍\nStay blessed and happy always and forever.\nKeep shining and smiling always ✨\nMay Allah protect you from evil eyes and fulfill all your wishes and dreams.\nAmeen 🌸\nEnjoy your day 😊"
+  },
+
+  {
     name: "Sunny & Wafa",
     message: "Happy Birthday 🤍\nWishing you good health, peace, and happiness always.\nLots of love from both of us 💕"
   }
