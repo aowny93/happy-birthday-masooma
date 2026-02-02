@@ -26,7 +26,7 @@ const wishes = [
 
   {
     name: "Sasur G",
-    message: "Happy birthday Golden Sultan ♥️\nHamesha khush raho.\n— Sasur G"
+    message: "Happy birthday Golden Sultan ♥️\nHamesha khush raho."
   },
 
   {
@@ -96,7 +96,7 @@ const wishes = [
 
   {
     name: "Abdullah",
-    message: "Happy Birthday 🎂\nMay you have an amazing day and all your dreams come true.\nStay blessed 🤍"
+    message: "Happy Birthday bhabi Masooma 🎉💐\nAllah aapko hamesha sehat, khushi, aur kamyabi ata farmaye.\nDooriyon ke bawajood aap dono ka rishta aur pyar hamesha mazboot rahe.\nInshaAllah bohat jald Ireland aur Pakistan ki yeh doori bhi khatam ho.\nAmeen 🤍"
   },
 
   {
@@ -112,6 +112,16 @@ const wishes = [
   {
     name: "From the Rest of the World 🌍",
     message: "Happy Birthday 🎂\nYour potential is limitless and your journey is just beginning.\nBelieve in yourself and make this year your masterpiece ✨"
+  },
+
+  {
+    name: "Sono",
+    message: "Happy birthday Esha 🎈🌹\nAllah Pak tumhein hamesha khush rakhein.\nLots of prayers and best wishes 🤍"
+  },
+
+  {
+    name: "Anza",
+    message: "Happy birthday to you, Masooma api 🎈😍😘\nAap bohat achi hain.\nAllah aapke naseeb hamesha ache rakhein aur aapko kabhi gham na de.\nAmeen 🤍\nYou’re the best sister-in-law ✨"
   },
 
   {
